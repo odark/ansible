@@ -1,0 +1,11 @@
+- hosts: all
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: template test
+      template:
+        src: hosts.j2
+        dest: "/tmp/hosts.template.conf"
+        mode: 0640
+        backup: yes

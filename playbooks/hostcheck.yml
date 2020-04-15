@@ -1,0 +1,6 @@
+- hosts: all
+  vars:
+    hostnm: "{{ inventory_hostname }}"
+  tasks:
+  - debug:
+      msg: "{{ hostnm.split('.')[1] }}"

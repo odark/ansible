@@ -1,0 +1,10 @@
+- hosts: all
+#  sudo: yes
+#  sudo_user: odark
+  gather_facts: no
+  serial: "{{ serial }}"
+  vars_files:
+    - "/home/odark/ansible/playbooks/roles/app/vars/appCommon.yml"
+    - "/home/odark/ansible/playbooks/group_vars/common.yml"
+  roles:
+    - app

@@ -1,0 +1,31 @@
+#!/usr/bin/python
+from checkUtil import *
+
+import os
+import sys
+
+os.environ["ANSIBLE_CONFIG"]="/home/odark/ansible/ansible.cfg"
+
+ssh_user="root"
+argvCount = len(sys.argv)
+
+action=sys.argv[1]
+
+print("action : "+action)
+
+forks = getForks()
+
+print("======start==========")
+
+ansibleStr = 'ansible-playbook /home/odark/ansible/playbooks/test.yml -e action='+action+' -e serial='+forks+' -f '+forks+' -u '+ssh_user+' -k'
+
+if action=='cmd':
+  command=input('Input Command : ')
+
+  command += ";echo -n '|a|';"
+  ansibleStr = 'ansible all -m shell -a "'+command+'" -e serial='+forks+' -f '+forks+' -u '+ssh_user+' -k'
+
+    
+
+os.system(ansibleStr)
+

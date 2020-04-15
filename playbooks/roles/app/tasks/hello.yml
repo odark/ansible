@@ -1,0 +1,11 @@
+---
+- name: hello test
+  shell: echo "hello world"
+
+- name: condition test
+  shell: df -h 
+  when: flume is undefined 
+
+- name: test
+  debug:
+    msg: "{{ odark.test }}"
