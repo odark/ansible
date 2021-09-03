@@ -1,3 +1,4 @@
 ln -s /home/odark/ansible/orun Ransible
 odark@osh:/usr/bin$ ll /usr/bin/Ransible
 lrwxrwxrwx 1 root root 24 Feb 21 17:06 /usr/bin/Ransible -> /home/odark/ansible/orun*
+테스트
